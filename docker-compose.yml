@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  # Servicio para la aplicación Laravel
+  app:
+    image: composer:latest
+    volumes:
+      - ./product-viewer:/var/www/html
+    working_dir: /var/www/html
+    command: ["composer", "install"]
+  
+  # Servicio para la base de datos SQLite
+  db:
+    image: sqlite:latest
+    volumes:
+      - ./database:/var/lib/sqlite
